@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -28,6 +30,7 @@ public class WebSecurityConfig {
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
+                        .successHandler(loginSuccessHandler())
                 )
                 .logout(LogoutConfigurer::permitAll);
 
@@ -47,5 +50,17 @@ public class WebSecurityConfig {
     @Bean
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    public AuthenticationSuccessHandler loginSuccessHandler() {
+        return (request, response, authentication) -> {
+            response.sendRedirect("/admin");
+        };
+    }
+
+    public AuthenticationFailureHandler loginFailureHandler() {
+        return (request, response, exception) -> {
+            response.sendRedirect("/login");
+        };
     }
 }

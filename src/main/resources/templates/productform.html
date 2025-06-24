@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- REQUIRED META TAGS -->
     <meta charset="UTF-8">
     <meta name="viewprt" content="width=device-width, initial-scale=1">
 
-    <title>Admin Panel</title>
+    <title>Product Form</title>
     <!-- BOOTSTRAP CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
@@ -14,22 +14,7 @@
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a th:href="@{/home}">Home</a></li>
-        <li><a th:href="@{/specials}">Specials</a></li>
-        <li><a th:href="@{/drinks}">Drinks</a></li>
-        <li><a th:href="@{/food}">Food</a></li>
-        <li><a th:href="@{/gameday}">Gameday</a></li>
-        <li><a th:href="@{/about}">About</a></li>
-    </ul>
-</nav>
-
-<h1>This is the admin page</h1>
-<h2>Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h2>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out">
-</form>
+<h1>This is the product form page</h1>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
